@@ -1,33 +1,40 @@
+
 <p id="notice"><%= notice %></p>
-
-<h1>Traveler's Review</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Location</th>
-      <th>Estimated price</th>
-      <th colspan="3">Option</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.writer %></td>
-        <td><%= post.location %></td>
-        <td><%= post.estimated_price %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Review', new_post_path %>
+<div class = "mainpart">
+  <div class = "Title">
+    Traveler's Review
+  </div>
+  <hr><br>
+  
+  <div class = "list">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Location</th>
+          <th>Estimated price</th>
+          <th colspan="3">Option</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title , post %></td>
+            <td><%= post.writer %></td>
+            <td><%= post.location %></td>
+            <td><%= post.estimated_price %></td>
+            <td><%= link_to 'Show', post %></td>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <br>
+    
+    <%= link_to 'New Review', new_post_path %>
+  </div>
+</div>

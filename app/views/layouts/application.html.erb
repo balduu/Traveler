@@ -7,9 +7,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    
   </head>
 
   <body>
+    <div class = "mainpart">
     <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -17,17 +21,33 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
     <%= yield %>
+    <!--
     <ul class="nav">
   <li class="active"><a href="/ideas">Ideas</a></li>
 </ul>
+-->
     <p class="navbar-text pull-right">
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <div class = "loginuser">
+  Hello <strong><%= current_user.email %></strong>.
+  <hr><br><br>
+  <%= link_to "Edit profile", edit_user_registration_path, :class => 'acc-link' %> 
+  <br><br>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'acc-link'  %>
+  </div>
+  
+  <div class = "content">
+  <%= link_to "All posts", posts_path, :class => 'posts-link' %> 
+  <br><br>
+  </div>
+  
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <div class = "log">
+    <%= link_to "Login", new_user_session_path, :class => 'acc-link'  %> 
+    <br><br><br>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'acc-link'  %>
+  </div>
 <% end %>
+</div>
   </body>
 </html>

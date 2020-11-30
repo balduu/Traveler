@@ -1,14 +1,63 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// POSTS
+
+.mainpart {
+    width: 1000px;
+    height: auto;
+    min-height: 680px;
+    background-color: bisque;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Title {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 50px;
+    clear: both;
+}
+
+.list {
+    padding: 40px;
+}
+
+.newpost {
+    padding: 40px;
+    font-family: 'Sansita Swashed', cursive;
+}
+.showpost {
+    padding: 40px;
+}
 .photo {
     width: 500px;
     height: auto;
 }
-table, th, td{
-    border:1px solid black;
+table {
+    width: 100%;
+    text-align: right;
+    border-collapse:collapse;
 }
-
+td {
+    height: 30px;
+}
 th {
     background-color:skyblue;
 }
+
+.detailpart {
+    width: 700px;
+    height: 400px;
+    overflow: auto;
+}
+
+.detailshow {
+    width: 700px;
+    height: auto;
+    overflow: auto;
+}
+
