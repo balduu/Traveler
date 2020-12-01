@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+ before_action :post_user!, except: :index
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post).reverse
   end
 
   # GET /posts/1
@@ -15,7 +19,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.new
+    authorize @post
   end
 
   # GET /posts/1/edit
@@ -25,6 +30,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @post = current_user.posts.create(post_params)
+    authorize @post
     @post = Post.new(post_params)
 
     respond_to do |format|
@@ -41,6 +48,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -66,6 +74,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      authorize @post
     end
 
     # Only allow a list of trusted parameters through.
