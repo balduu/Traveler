@@ -29,7 +29,7 @@
     <p class="navbar-text pull-right">
 <% if user_signed_in? %>
   <div class = "loginuser">
-  Hello <strong><%= current_user.email %></strong>.
+  Hello <strong><%= link_to current_user.email  , users_show_path %></strong>.
   <hr><br><br>
   <%= link_to "Edit profile", edit_user_registration_path, :class => 'acc-link' %> 
   <br><br>
