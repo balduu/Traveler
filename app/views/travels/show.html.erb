@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @travel.title %>
+</p>
+
+<p>
+  <strong>Writer:</strong>
+  <%= @travel.writer %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @travel.detail %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @travel.location %>
+</p>
+
+<p>
+  <strong>Estimated price:</strong>
+  <%= @travel.estimated_price %>
+</p>
+
+<%= link_to 'Edit', edit_travel_path(@travel) %> |
+<%= link_to 'Back', travels_path %>

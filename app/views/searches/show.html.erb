@@ -1,0 +1,20 @@
+<h1> Search Result </h1>
+<p><%= link_to	'Back', new_search_path %></p>
+
+<% if @search.search_travel.empty? %>
+
+<p> No records found</p>
+<% else %>
+<% @search.search_travel.each do |c| %>
+ <br>
+
+   <div class="div">
+	<h1><%= c.title %></h1>
+	<p> Writer: <%= c.writer %></p>
+	<p> Detail: <%= c.detail %></p>
+	<p> Location: <%= c.location %></p>
+	<p> Estimated Price: $<%= c.estimated_price %></p>
+   </div>
+
+ <% end %>
+<% end %>
