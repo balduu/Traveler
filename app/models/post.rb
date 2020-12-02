@@ -10,8 +10,7 @@ class Post < ApplicationRecord
 			all
 		end
 	end
-    
-    def total_like
+ def total_like
        Like.where(post_id: self.id).count
     end
 end

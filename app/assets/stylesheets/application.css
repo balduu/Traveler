@@ -21,6 +21,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
+    clear: both;
 }
 
 .loginuser {
@@ -49,6 +50,7 @@
 
 .posts-link {
     margin-top: 20px;
+    margin-right: 100px;
     padding: 10px;
     width: 150px;
     display: block;
@@ -57,8 +59,9 @@
     border-radius: 50px;
     font-family: 'Sansita Swashed', cursive;
     font-size: 20px;
+    float: right;
 }
 
-.log {
-    padding: 50px;
+.logname {
+    text-decoration: none;
 }

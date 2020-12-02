@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 2020_12_02_020303) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "writer"
+    t.string "location"
+    t.decimal "min_price"
+    t.decimal "max_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

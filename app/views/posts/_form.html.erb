@@ -22,8 +22,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :writer %>
-    <%= form.text_field :writer %>
+    <div> Author:<%= current_user.name %> </div>
+    <%= form.hidden_field :writer, :value => current_user.name %>
+    
   </div>
 
   <div class="field">
