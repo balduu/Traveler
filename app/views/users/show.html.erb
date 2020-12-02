@@ -9,14 +9,43 @@
 <h3>Email Address</h3>
 <%= @user.email %> 
 
-<!--<h3>Name</h3>-->
-<!--<%= @user.name %>-->
+<h3>Name</h3>
+<%= @user.name %>
 
-<!--<h3>Age</h3>-->
-<!--<%= @user.age %>-->
+<h3>Age</h3>
+<%= @user.age %>
 
-<!--<h3>Hobbies</h3>-->
-<!--<%= @user.hobby %>-->
+<h3>Hobbies</h3>
+<%= @user.hobby %>
 
-<!--<h3>Local</h3>-->
-<!--<%= @user.local %>-->
+<h3>Local</h3>
+<%= @user.local %>
+
+<ul class="users nav">
+
+  <% @users.each do |user| %>
+             <% @count = 0 %>
+             <li class="nav-item"> <%= render user %></li>
+               <li class="nav-item">
+                   <%= form_tag follow_user_path, method: :post do %>
+               <% @follower.each do |follower| %>
+                   <% if user.id == follower.id %>
+                     <% @count = 1 %>
+                     <li class="nav-item">
+                    <%= link_to "Un follow", user, method: :delete,class: "btn btn-primary", data: { confirm: "You sure?" } %>
+                     <% end %>
+
+
+                    <% end %>
+
+
+                  <% if @count == 0 %>
+                   <li class="nav-item">
+                   <%= form_tag  follow_user_path, method: :post do %>
+                   <%= hidden_field_tag :follow_id, user.id %>
+                   <%= submit_tag "Follow", class: "btn btn-primary" ,data: { confirm: "You follow?" }%>
+                    <%= submit_tag " Follow", class: "btn btn-primary" ,data: { confirm: "You follow Sure?" } %>
+                   <% end %>
+                   <% end %>
+            <% end %>
+ </ul> 
